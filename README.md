@@ -8,7 +8,7 @@ A tiny Python utility that returns a friendly greeting.
 python greet.py
 ```
 
-This will pirnt:
+This will print:
 
 ```
 Hello, World!
