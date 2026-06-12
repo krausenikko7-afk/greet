@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lankeu Gold Project — Bétaré-Oya, East Region, Cameroon</title>
-  <meta name="description" content="Gold and diamond mining project in the Bétaré-Oya gold district, East Region, Cameroon. Active alluvial gold production, 22–22.5 carat gold, 4-hectare licensed concession.">
+  <title>COOP-CARTEL №1 — Diamant Gold Cooperative · Gold & Diamond Mining, Cameroon</title>
+  <meta name="description" content="COOP-CARTEL №1 — Diamant Gold Cooperative, Yaoundé, Cameroon. Gold and diamond mining project in the Bétaré-Oya gold district, East Region. Active alluvial gold production, 22–22.5 carat gold, 4-hectare licensed concession.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -18,8 +18,8 @@
   <header class="nav" id="nav">
     <div class="nav__inner container">
       <a href="#hero" class="nav__logo">
-        <span class="nav__logo-mark">Au</span>
-        <span class="nav__logo-text">LANKEU <em>GOLD</em></span>
+        <img src="assets/logo.svg" alt="Diamant Gold" class="nav__logo-img">
+        <span class="nav__logo-text">COOP-CARTEL <em>№1</em><small>DIAMANT GOLD COOPERATIVE</small></span>
       </a>
       <nav class="nav__links" id="navLinks">
         <a href="#about" data-i18n="nav.about">Project</a>
@@ -240,7 +240,25 @@
         A detailed confidential report (geology, remote-sensing results, official documents,
         verification program) is available on request.
       </p>
-      <form class="contact reveal" id="contactForm" action="mailto:niko.neftonenko@gmail.com" method="post" enctype="text/plain">
+      <div class="contact__grid">
+        <div class="contact__info reveal">
+          <img src="assets/business-card.jpg" alt="COOP-CARTEL №1 — Nikolai Krause business card" class="contact__card-img">
+          <ul class="contact__list">
+            <li><span class="contact__label" data-i18n="ct.person">Contact person</span><strong>Nikolai Krause</strong></li>
+            <li><span class="contact__label" data-i18n="ct.company">Company</span><strong>COOP-CARTEL №1 · Diamant Gold Cooperative</strong></li>
+            <li><span class="contact__label" data-i18n="ct.addr">Address</span><strong>Golf, Yaoundé 1, Cameroon</strong></li>
+            <li><span class="contact__label" data-i18n="ct.phone">Phone / WhatsApp</span>
+              <strong>
+                <a href="tel:+237672782452">+237 672 78 24 52</a><br>
+                <a href="tel:+237675176448">+237 675 17 64 48</a><br>
+                <a href="tel:+237675176357">+237 675 17 63 57</a>
+              </strong>
+            </li>
+            <li><span class="contact__label">Email</span><strong><a href="mailto:nk@goldanddiamondscameroon.com">nk@goldanddiamondscameroon.com</a></strong></li>
+            <li><span class="contact__label" data-i18n="ct.web">Website</span><strong><a href="https://www.golddiamondscameroon.com" target="_blank" rel="noopener">www.golddiamondscameroon.com</a></strong></li>
+          </ul>
+        </div>
+      <form class="contact reveal" id="contactForm" action="mailto:nk@goldanddiamondscameroon.com" method="post" enctype="text/plain">
         <div class="contact__row">
           <input type="text" name="name" required data-i18n-ph="ct.name" placeholder="Your name">
           <input type="email" name="email" required data-i18n-ph="ct.email" placeholder="Email">
@@ -248,13 +266,15 @@
         <textarea name="message" rows="4" required data-i18n-ph="ct.msg" placeholder="Message"></textarea>
         <button type="submit" class="btn btn--gold" data-i18n="ct.send">Send request</button>
       </form>
+      </div>
     </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container footer__inner">
-      <p>© 2026 LANKEU GOLD · <span data-i18n="ft.line">Bétaré-Oya Gold District, East Region, Republic of Cameroon</span></p>
+      <p>© 2026 COOP-CARTEL №1 · DIAMANT GOLD COOPERATIVE · <span data-i18n="ft.line">Bétaré-Oya Gold District, East Region, Republic of Cameroon</span></p>
+      <p>Golf, Yaoundé 1, Cameroon · +237 672 78 24 52 · <a href="mailto:nk@goldanddiamondscameroon.com">nk@goldanddiamondscameroon.com</a></p>
       <p class="footer__note" data-i18n="ft.note">
         This website is for information purposes only and does not constitute an offer or a
         JORC/NI 43-101 resource estimate.

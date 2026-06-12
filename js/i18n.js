@@ -1,10 +1,10 @@
-/* ============ LANKEU GOLD — translations (EN / FR / DE / RU) ============ */
+/* ============ COOP-CARTEL №1 · DIAMANT GOLD — translations (EN / FR / DE / RU) ============ */
 const I18N = {
   en: {
     'nav.about': 'Project', 'nav.location': 'Location', 'nav.gallery': 'Photos',
     'nav.videos': 'Videos', 'nav.contact': 'Contact',
 
-    'hero.eyebrow': 'Republic of Cameroon · East Region · Bétaré-Oya Gold District',
+    'hero.eyebrow': 'COOP-CARTEL №1 · Republic of Cameroon · East Region · Bétaré-Oya Gold District',
     'hero.title1': 'Gold & Diamond', 'hero.title2': 'Mining Project',
     'hero.sub': "Active alluvial gold production on a 4-hectare licensed concession in one of Cameroon's most prospective gold districts — verified 22–22.5 carat output.",
     'hero.cta1': 'View Gallery', 'hero.cta2': 'See Location',
@@ -51,6 +51,8 @@ const I18N = {
 
     'ct.eyebrow': 'Contact', 'ct.title': 'Request the full investor report',
     'ct.desc': 'A detailed confidential report (geology, remote-sensing results, official documents, verification program) is available on request.',
+    'ct.person': 'Contact person', 'ct.company': 'Company', 'ct.addr': 'Address',
+    'ct.phone': 'Phone / WhatsApp', 'ct.web': 'Website',
     'ct.name': 'Your name', 'ct.email': 'Email', 'ct.msg': 'Message', 'ct.send': 'Send request',
 
     'ft.line': 'Bétaré-Oya Gold District, East Region, Republic of Cameroon',
@@ -61,7 +63,7 @@ const I18N = {
     'nav.about': 'Projet', 'nav.location': 'Localisation', 'nav.gallery': 'Photos',
     'nav.videos': 'Vidéos', 'nav.contact': 'Contact',
 
-    'hero.eyebrow': 'République du Cameroun · Région de l’Est · District aurifère de Bétaré-Oya',
+    'hero.eyebrow': 'COOP-CARTEL №1 · République du Cameroun · Région de l’Est · District aurifère de Bétaré-Oya',
     'hero.title1': 'Projet minier', 'hero.title2': 'Or & Diamant',
     'hero.sub': 'Production aurifère alluviale active sur une concession licenciée de 4 hectares, dans l’un des districts aurifères les plus prometteurs du Cameroun — or certifié 22–22,5 carats.',
     'hero.cta1': 'Voir la galerie', 'hero.cta2': 'Voir la localisation',
@@ -108,6 +110,8 @@ const I18N = {
 
     'ct.eyebrow': 'Contact', 'ct.title': 'Demander le rapport investisseur complet',
     'ct.desc': 'Un rapport confidentiel détaillé (géologie, résultats de télédétection, documents officiels, programme de vérification) est disponible sur demande.',
+    'ct.person': 'Personne de contact', 'ct.company': 'Société', 'ct.addr': 'Adresse',
+    'ct.phone': 'Téléphone / WhatsApp', 'ct.web': 'Site web',
     'ct.name': 'Votre nom', 'ct.email': 'E-mail', 'ct.msg': 'Message', 'ct.send': 'Envoyer la demande',
 
     'ft.line': 'District aurifère de Bétaré-Oya, Région de l’Est, République du Cameroun',
@@ -118,7 +122,7 @@ const I18N = {
     'nav.about': 'Projekt', 'nav.location': 'Standort', 'nav.gallery': 'Fotos',
     'nav.videos': 'Videos', 'nav.contact': 'Kontakt',
 
-    'hero.eyebrow': 'Republik Kamerun · Region Est · Goldbezirk Bétaré-Oya',
+    'hero.eyebrow': 'COOP-CARTEL №1 · Republik Kamerun · Region Est · Goldbezirk Bétaré-Oya',
     'hero.title1': 'Gold- & Diamanten-', 'hero.title2': 'Bergbauprojekt',
     'hero.sub': 'Aktive alluviale Goldförderung auf einer lizenzierten 4-Hektar-Konzession in einem der aussichtsreichsten Goldbezirke Kameruns — zertifizierte Reinheit von 22–22,5 Karat.',
     'hero.cta1': 'Galerie ansehen', 'hero.cta2': 'Standort ansehen',
@@ -165,6 +169,8 @@ const I18N = {
 
     'ct.eyebrow': 'Kontakt', 'ct.title': 'Vollständigen Investorenbericht anfordern',
     'ct.desc': 'Ein detaillierter vertraulicher Bericht (Geologie, Fernerkundungsergebnisse, amtliche Unterlagen, Verifizierungsprogramm) ist auf Anfrage erhältlich.',
+    'ct.person': 'Ansprechpartner', 'ct.company': 'Unternehmen', 'ct.addr': 'Adresse',
+    'ct.phone': 'Telefon / WhatsApp', 'ct.web': 'Webseite',
     'ct.name': 'Ihr Name', 'ct.email': 'E-Mail', 'ct.msg': 'Nachricht', 'ct.send': 'Anfrage senden',
 
     'ft.line': 'Goldbezirk Bétaré-Oya, Region Est, Republik Kamerun',
@@ -175,7 +181,7 @@ const I18N = {
     'nav.about': 'Проект', 'nav.location': 'Локация', 'nav.gallery': 'Фото',
     'nav.videos': 'Видео', 'nav.contact': 'Контакты',
 
-    'hero.eyebrow': 'Республика Камерун · Восточный регион · Золотоносный район Бетаре-Ойя',
+    'hero.eyebrow': 'COOP-CARTEL №1 · Республика Камерун · Восточный регион · Золотоносный район Бетаре-Ойя',
     'hero.title1': 'Добыча золота', 'hero.title2': 'и алмазов',
     'hero.sub': 'Действующая добыча россыпного золота на лицензированной концессии площадью 4 га в одном из самых перспективных золотоносных районов Камеруна — подтверждённая чистота 22–22,5 карата.',
     'hero.cta1': 'Смотреть галерею', 'hero.cta2': 'Локация',
@@ -222,6 +228,8 @@ const I18N = {
 
     'ct.eyebrow': 'Контакты', 'ct.title': 'Запросить полный отчёт для инвесторов',
     'ct.desc': 'Подробный конфиденциальный отчёт (геология, результаты дистанционного зондирования, официальные документы, программа верификации) доступен по запросу.',
+    'ct.person': 'Контактное лицо', 'ct.company': 'Компания', 'ct.addr': 'Адрес',
+    'ct.phone': 'Телефон / WhatsApp', 'ct.web': 'Сайт',
     'ct.name': 'Ваше имя', 'ct.email': 'Email', 'ct.msg': 'Сообщение', 'ct.send': 'Отправить запрос',
 
     'ft.line': 'Золотоносный район Бетаре-Ойя, Восточный регион, Республика Камерун',
