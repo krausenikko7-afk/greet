@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lankeu Gold Project — Bétaré-Oya, East Region, Cameroon</title>
+  <meta name="description" content="Gold and diamond mining project in the Bétaré-Oya gold district, East Region, Cameroon. Active alluvial gold production, 22–22.5 carat gold, 4-hectare licensed concession.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner container">
+      <a href="#hero" class="nav__logo">
+        <span class="nav__logo-mark">Au</span>
+        <span class="nav__logo-text">LANKEU <em>GOLD</em></span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="#about" data-i18n="nav.about">Project</a>
+        <a href="#location" data-i18n="nav.location">Location</a>
+        <a href="#gallery" data-i18n="nav.gallery">Photos</a>
+        <a href="#videos" data-i18n="nav.videos">Videos</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="nav__right">
+        <div class="lang-switch" id="langSwitch">
+          <button data-lang="en" class="active">EN</button>
+          <button data-lang="fr">FR</button>
+          <button data-lang="de">DE</button>
+          <button data-lang="ru">RU</button>
+        </div>
+        <button class="nav__burger" id="burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__glow"></div>
+    <div class="hero__content container">
+      <p class="hero__eyebrow reveal" data-i18n="hero.eyebrow">Republic of Cameroon · East Region · Bétaré-Oya Gold District</p>
+      <h1 class="hero__title reveal">
+        <span data-i18n="hero.title1">Gold &amp; Diamond</span><br>
+        <span class="gradient-text" data-i18n="hero.title2">Mining Project</span>
+      </h1>
+      <p class="hero__sub reveal" data-i18n="hero.sub">
+        Active alluvial gold production on a 4-hectare licensed concession in one of
+        Cameroon's most prospective gold districts — verified 22–22.5 carat output.
+      </p>
+      <div class="hero__cta reveal">
+        <a href="#gallery" class="btn btn--gold" data-i18n="hero.cta1">View Gallery</a>
+        <a href="#location" class="btn btn--ghost" data-i18n="hero.cta2">See Location</a>
+      </div>
+      <div class="hero__stats reveal">
+        <div class="stat">
+          <div class="stat__num" data-count="4">0</div>
+          <div class="stat__label" data-i18n="stats.hectares">hectares concession</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num"><span data-count="22.5" data-decimals="1">0</span></div>
+          <div class="stat__label" data-i18n="stats.carat">carat gold purity</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num"><span data-count="3">0</span>+1</div>
+          <div class="stat__label" data-i18n="stats.zones">ore zones detected (Au + Ag)</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num"><span data-count="1.25" data-decimals="2">0</span></div>
+          <div class="stat__label" data-i18n="stats.grade">g/m³ indicative grade</div>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="hero__scroll" aria-label="Scroll down"><span></span></a>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <p class="section__eyebrow reveal" data-i18n="about.eyebrow">The Project</p>
+      <h2 class="section__title reveal" data-i18n="about.title">An operating gold site in the heart of Bétaré-Oya</h2>
+      <div class="about__grid">
+        <div class="about__text reveal">
+          <p data-i18n="about.p1">
+            The concession of LANKEU PATRICE LEMON covers four hectares in the East Region of
+            the Republic of Cameroon, within the renowned Bétaré-Oya gold district — an area with
+            extensive gold-bearing alluvial gravels of proven economic importance, roughly 160 km
+            from Bertoua, the regional capital.
+          </p>
+          <p data-i18n="about.p2">
+            Artisanal and semi-mechanized gold production is already active on site: excavators,
+            prospecting pits and sluice washing. Official expertise (MINMIDT, Yaoundé) certified
+            gold bars of 22–22.5 carat (≈ 91.7–93.75% purity) produced by the operator.
+          </p>
+          <p data-i18n="about.p3">
+            Remote-sensing survey (RSS) outlined three gold ore zones (Au-1, Au-2, Au-3) and one
+            silver-bearing zone (Ag-1) as priority exploration targets. The East Region is also
+            known for its alluvial diamond occurrences, making the area a combined gold &amp;
+            diamond prospect.
+          </p>
+        </div>
+        <div class="about__cards">
+          <div class="card reveal">
+            <div class="card__icon">⛏️</div>
+            <h3 data-i18n="about.c1t">Active Production</h3>
+            <p data-i18n="about.c1p">Excavator, prospecting pits and sluice — real gold is being produced today.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card__icon">🏅</div>
+            <h3 data-i18n="about.c2t">Certified Purity</h3>
+            <p data-i18n="about.c2p">Official MINMIDT expertise: 22–22.5 carat gold bars, 334.855 g sample.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card__icon">📜</div>
+            <h3 data-i18n="about.c3t">Registered Concession</h3>
+            <p data-i18n="about.c3p">Holder and area registered with Cameroonian mining authorities; official cadastral coordinates (14 corner points).</p>
+          </div>
+          <div class="card reveal">
+            <div class="card__icon">💎</div>
+            <h3 data-i18n="about.c4t">Gold &amp; Diamond District</h3>
+            <p data-i18n="about.c4p">East Cameroon hosts both alluvial gold and diamond occurrences (Bétaré-Oya, Batouri, Kette).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOCATION ===== -->
+  <section class="section section--alt" id="location">
+    <div class="container">
+      <p class="section__eyebrow reveal" data-i18n="loc.eyebrow">Location</p>
+      <h2 class="section__title reveal" data-i18n="loc.title">East Region, Cameroon — Bétaré-Oya gold district</h2>
+      <div class="loc__grid">
+        <div class="loc__info reveal">
+          <ul class="loc__list">
+            <li><strong data-i18n="loc.l1t">Center of concession:</strong> <span class="mono">5°32′35″ N, 14°05′11″ E</span></li>
+            <li><strong data-i18n="loc.l2t">Decimal:</strong> <span class="mono">5.54300, 14.08650</span></li>
+            <li><strong data-i18n="loc.l3t">District:</strong> <span data-i18n="loc.l3v">Bétaré-Oya, Lom-et-Djérem, East Region</span></li>
+            <li><strong data-i18n="loc.l4t">Regional capital:</strong> <span data-i18n="loc.l4v">Bertoua (~160 km)</span></li>
+            <li><strong data-i18n="loc.l5t">Area:</strong> <span data-i18n="loc.l5v">4 hectares (14 official corner points)</span></li>
+          </ul>
+          <div class="loc__btns">
+            <a class="btn btn--gold" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/search/?api=1&query=5.54300,14.08650"
+               data-i18n="loc.gmaps">Open in Google Maps</a>
+            <a class="btn btn--ghost" target="_blank" rel="noopener"
+               href="https://earth.google.com/web/@5.543,14.0865,680a,2000d,35y,0h,0t,0r"
+               data-i18n="loc.gearth">Google Earth</a>
+          </div>
+        </div>
+        <div class="loc__map reveal">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <p class="section__eyebrow reveal" data-i18n="gal.eyebrow">Gallery</p>
+      <h2 class="section__title reveal" data-i18n="gal.title">Photos from the site</h2>
+      <p class="section__desc reveal" data-i18n="gal.desc">
+        Sluice washing, excavation works, gold concentrate and the concession landscape.
+        New photos are added as they arrive from the field.
+      </p>
+      <div class="gallery" id="photoGrid">
+        <!-- To add a real photo: drop the file into assets/photos/ and replace a placeholder
+             figure below, e.g. <img src="assets/photos/IMG_001.jpg" alt="..."> -->
+        <figure class="gallery__item reveal" data-caption-i18n="gal.cap1">
+          <img src="assets/photos/placeholder-1.svg" alt="Sluice gold washing" loading="lazy">
+          <figcaption data-i18n="gal.cap1">Gold recovery over the sluice</figcaption>
+        </figure>
+        <figure class="gallery__item reveal" data-caption-i18n="gal.cap2">
+          <img src="assets/photos/placeholder-2.svg" alt="Excavator at the pit" loading="lazy">
+          <figcaption data-i18n="gal.cap2">Mechanical excavation at the pit edge</figcaption>
+        </figure>
+        <figure class="gallery__item reveal" data-caption-i18n="gal.cap3">
+          <img src="assets/photos/placeholder-3.svg" alt="Gold concentrate" loading="lazy">
+          <figcaption data-i18n="gal.cap3">Weighed gold concentrate — 12.47 g</figcaption>
+        </figure>
+        <figure class="gallery__item reveal" data-caption-i18n="gal.cap4">
+          <img src="assets/photos/placeholder-4.svg" alt="Gold in the pan" loading="lazy">
+          <figcaption data-i18n="gal.cap4">Concentrate in the washing pan</figcaption>
+        </figure>
+        <figure class="gallery__item reveal" data-caption-i18n="gal.cap5">
+          <img src="assets/photos/placeholder-5.svg" alt="Concession landscape" loading="lazy">
+          <figcaption data-i18n="gal.cap5">Concession area — Bétaré-Oya district</figcaption>
+        </figure>
+        <figure class="gallery__item reveal" data-caption-i18n="gal.cap6">
+          <img src="assets/photos/placeholder-6.svg" alt="Gold bars" loading="lazy">
+          <figcaption data-i18n="gal.cap6">Gold bars, 22–22.5 carat (MINMIDT expertise)</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VIDEOS ===== -->
+  <section class="section section--alt" id="videos">
+    <div class="container">
+      <p class="section__eyebrow reveal" data-i18n="vid.eyebrow">Videos</p>
+      <h2 class="section__title reveal" data-i18n="vid.title">Video from the field</h2>
+      <p class="section__desc reveal" data-i18n="vid.desc">
+        Drone flyovers and working footage of the mining operations.
+      </p>
+      <div class="videos">
+        <!-- To add a real video: drop the file into assets/videos/ and replace a placeholder with
+             <video controls poster="..."><source src="assets/videos/clip.mp4" type="video/mp4"></video>
+             or paste a YouTube iframe embed. -->
+        <div class="video__item reveal">
+          <div class="video__placeholder">
+            <button class="video__play" aria-label="Play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+            <span data-i18n="vid.v1">Drone flyover of the concession — coming soon</span>
+          </div>
+        </div>
+        <div class="video__item reveal">
+          <div class="video__placeholder">
+            <button class="video__play" aria-label="Play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+            <span data-i18n="vid.v2">Sluice washing &amp; gold recovery — coming soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <p class="section__eyebrow reveal" data-i18n="ct.eyebrow">Contact</p>
+      <h2 class="section__title reveal" data-i18n="ct.title">Request the full investor report</h2>
+      <p class="section__desc reveal" data-i18n="ct.desc">
+        A detailed confidential report (geology, remote-sensing results, official documents,
+        verification program) is available on request.
+      </p>
+      <form class="contact reveal" id="contactForm" action="mailto:niko.neftonenko@gmail.com" method="post" enctype="text/plain">
+        <div class="contact__row">
+          <input type="text" name="name" required data-i18n-ph="ct.name" placeholder="Your name">
+          <input type="email" name="email" required data-i18n-ph="ct.email" placeholder="Email">
+        </div>
+        <textarea name="message" rows="4" required data-i18n-ph="ct.msg" placeholder="Message"></textarea>
+        <button type="submit" class="btn btn--gold" data-i18n="ct.send">Send request</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© 2026 LANKEU GOLD · <span data-i18n="ft.line">Bétaré-Oya Gold District, East Region, Republic of Cameroon</span></p>
+      <p class="footer__note" data-i18n="ft.note">
+        This website is for information purposes only and does not constitute an offer or a
+        JORC/NI 43-101 resource estimate.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" aria-label="Close">×</button>
+    <button class="lightbox__prev" aria-label="Previous">‹</button>
+    <img src="" alt="">
+    <button class="lightbox__next" aria-label="Next">›</button>
+    <p class="lightbox__caption"></p>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
