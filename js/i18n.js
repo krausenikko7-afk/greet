@@ -3,9 +3,23 @@ const I18N = {
   en: {
     'nav.about': 'Project', 'nav.location': 'Location', 'nav.gallery': 'Photos',
     'nav.videos': 'Videos', 'nav.contact': 'Contact',
-    'nav.process': 'Process', 'nav.news': 'News',
+    'nav.process': 'Process', 'nav.news': 'News', 'nav.cameroon': 'Cameroon',
 
     'tk.label': 'Gold market — live', 'tk.note': 'indicative world price',
+
+    'trust.t1': 'MINMIDT certified', 'trust.t2': '22–22.5 carat gold',
+    'trust.t3': 'Bétaré-Oya gold district', 'trust.t4': '4 ha licensed concession',
+    'trust.t5': 'Gold & diamond prospect',
+
+    'cm.eyebrow': 'Republic of Cameroon',
+    'cm.title': 'Cameroon — “Africa in miniature”',
+    'cm.p1': 'Cameroon stretches from Atlantic beaches and an active volcano to rainforest and Sahel — a bilingual (French & English) republic of about 28 million people, member of CEMAC with the stable CFA franc pegged to the euro.',
+    'cm.p2': 'The East Region is its treasure chest: alluvial gold of Bétaré-Oya and Batouri, diamond occurrences near Kette and Mobilong, timber and wild landscapes along the Lom and Djérem rivers.',
+    'cm.flag': 'Green — the forests of the south · Red — unity · Yellow — the sun and the savannas of the north. The golden star is the “star of unity”.',
+    'cm.c1t': 'Mount Cameroon', 'cm.c1p': 'West Africa’s highest peak (4,095 m) — an active volcano rising straight from the Atlantic.',
+    'cm.c2t': 'Yaoundé', 'cm.c2p': 'The capital on seven hills — seat of MINMIDT and headquarters of our cooperative.',
+    'cm.c3t': 'Kribi & Douala', 'cm.c3p': 'Deep-sea port and economic capital — Cameroon’s gateways for exports to the world.',
+    'cm.c4t': 'Lom & Djérem', 'cm.c4p': 'Gold-bearing rivers of the East Region — the heart of the Bétaré-Oya placer district.',
 
     'hero.eyebrow': 'COOP-CARTEL №1 · Republic of Cameroon · East Region · Bétaré-Oya Gold District',
     'hero.title1': 'Gold & Diamond', 'hero.title2': 'Mining Project',
@@ -91,9 +105,23 @@ const I18N = {
   fr: {
     'nav.about': 'Projet', 'nav.location': 'Localisation', 'nav.gallery': 'Photos',
     'nav.videos': 'Vidéos', 'nav.contact': 'Contact',
-    'nav.process': 'Processus', 'nav.news': 'Actualités',
+    'nav.process': 'Processus', 'nav.news': 'Actualités', 'nav.cameroon': 'Cameroun',
 
     'tk.label': 'Marché de l’or — en direct', 'tk.note': 'cours mondial indicatif',
+
+    'trust.t1': 'Certifié MINMIDT', 'trust.t2': 'Or de 22–22,5 carats',
+    'trust.t3': 'District aurifère de Bétaré-Oya', 'trust.t4': 'Concession licenciée de 4 ha',
+    'trust.t5': 'Prospect or & diamant',
+
+    'cm.eyebrow': 'République du Cameroun',
+    'cm.title': 'Le Cameroun — « l’Afrique en miniature »',
+    'cm.p1': 'Des plages atlantiques et d’un volcan actif à la forêt équatoriale et au Sahel — une république bilingue (français & anglais) d’environ 28 millions d’habitants, membre de la CEMAC avec un franc CFA stable arrimé à l’euro.',
+    'cm.p2': 'La Région de l’Est est son coffre aux trésors : l’or alluvionnaire de Bétaré-Oya et de Batouri, les diamants de Kette et de Mobilong, le bois précieux et les paysages sauvages le long du Lom et du Djérem.',
+    'cm.flag': 'Vert — les forêts du sud · Rouge — l’unité · Jaune — le soleil et les savanes du nord. L’étoile d’or est « l’étoile de l’unité ».',
+    'cm.c1t': 'Mont Cameroun', 'cm.c1p': 'Plus haut sommet d’Afrique de l’Ouest (4 095 m) — un volcan actif surgissant de l’Atlantique.',
+    'cm.c2t': 'Yaoundé', 'cm.c2p': 'La capitale aux sept collines — siège du MINMIDT et de notre coopérative.',
+    'cm.c3t': 'Kribi & Douala', 'cm.c3p': 'Port en eau profonde et capitale économique — les portes du Cameroun vers le monde.',
+    'cm.c4t': 'Lom & Djérem', 'cm.c4p': 'Rivières aurifères de l’Est — le cœur du district alluvionnaire de Bétaré-Oya.',
 
     'hero.eyebrow': 'COOP-CARTEL №1 · République du Cameroun · Région de l’Est · District aurifère de Bétaré-Oya',
     'hero.title1': 'Projet minier', 'hero.title2': 'Or & Diamant',
@@ -179,9 +207,23 @@ const I18N = {
   de: {
     'nav.about': 'Projekt', 'nav.location': 'Standort', 'nav.gallery': 'Fotos',
     'nav.videos': 'Videos', 'nav.contact': 'Kontakt',
-    'nav.process': 'Ablauf', 'nav.news': 'Aktuelles',
+    'nav.process': 'Ablauf', 'nav.news': 'Aktuelles', 'nav.cameroon': 'Kamerun',
 
     'tk.label': 'Goldmarkt — live', 'tk.note': 'indikativer Weltmarktpreis',
+
+    'trust.t1': 'MINMIDT-zertifiziert', 'trust.t2': 'Gold mit 22–22,5 Karat',
+    'trust.t3': 'Goldbezirk Bétaré-Oya', 'trust.t4': 'Lizenzierte 4-ha-Konzession',
+    'trust.t5': 'Gold- & Diamantprospekt',
+
+    'cm.eyebrow': 'Republik Kamerun',
+    'cm.title': 'Kamerun — „Afrika im Kleinformat“',
+    'cm.p1': 'Von Atlantikstränden und einem aktiven Vulkan bis zu Regenwald und Sahel — eine zweisprachige Republik (Französisch & Englisch) mit rund 28 Millionen Einwohnern, CEMAC-Mitglied mit dem stabilen, an den Euro gekoppelten CFA-Franc.',
+    'cm.p2': 'Die Region Est ist ihre Schatzkammer: alluviales Gold von Bétaré-Oya und Batouri, Diamantvorkommen bei Kette und Mobilong, Edelhölzer und wilde Landschaften entlang von Lom und Djérem.',
+    'cm.flag': 'Grün — die Wälder des Südens · Rot — die Einheit · Gelb — Sonne und Savannen des Nordens. Der goldene Stern ist der „Stern der Einheit“.',
+    'cm.c1t': 'Mount Cameroon', 'cm.c1p': 'Höchster Gipfel Westafrikas (4.095 m) — ein aktiver Vulkan direkt am Atlantik.',
+    'cm.c2t': 'Yaoundé', 'cm.c2p': 'Die Hauptstadt auf sieben Hügeln — Sitz des MINMIDT und unserer Kooperative.',
+    'cm.c3t': 'Kribi & Douala', 'cm.c3p': 'Tiefseehafen und Wirtschaftsmetropole — Kameruns Tore zur Welt.',
+    'cm.c4t': 'Lom & Djérem', 'cm.c4p': 'Goldführende Flüsse der Region Est — das Herz des Seifenbezirks Bétaré-Oya.',
 
     'hero.eyebrow': 'COOP-CARTEL №1 · Republik Kamerun · Region Est · Goldbezirk Bétaré-Oya',
     'hero.title1': 'Gold- & Diamanten-', 'hero.title2': 'Bergbauprojekt',
@@ -267,9 +309,23 @@ const I18N = {
   ru: {
     'nav.about': 'Проект', 'nav.location': 'Локация', 'nav.gallery': 'Фото',
     'nav.videos': 'Видео', 'nav.contact': 'Контакты',
-    'nav.process': 'Процесс', 'nav.news': 'Новости',
+    'nav.process': 'Процесс', 'nav.news': 'Новости', 'nav.cameroon': 'Камерун',
 
     'tk.label': 'Рынок золота — онлайн', 'tk.note': 'индикативная мировая цена',
+
+    'trust.t1': 'Сертификация MINMIDT', 'trust.t2': 'Золото 22–22,5 карата',
+    'trust.t3': 'Район Бетаре-Ойя', 'trust.t4': 'Лицензированная концессия 4 га',
+    'trust.t5': 'Золото и алмазы',
+
+    'cm.eyebrow': 'Республика Камерун',
+    'cm.title': 'Камерун — «Африка в миниатюре»',
+    'cm.p1': 'От атлантических пляжей и действующего вулкана до экваториальных лесов и Сахеля — двуязычная республика (французский и английский) с населением около 28 млн человек, член CEMAC со стабильным франком CFA, привязанным к евро.',
+    'cm.p2': 'Восточный регион — её сокровищница: россыпное золото Бетаре-Ойя и Батури, алмазы Кетте и Мобилонга, ценная древесина и дикие пейзажи вдоль рек Лом и Джерем.',
+    'cm.flag': 'Зелёный — леса юга · Красный — единство · Жёлтый — солнце и саванны севера. Золотая звезда — «звезда единства».',
+    'cm.c1t': 'Гора Камерун', 'cm.c1p': 'Высочайшая вершина Западной Африки (4 095 м) — действующий вулкан прямо у Атлантики.',
+    'cm.c2t': 'Яунде', 'cm.c2p': 'Столица на семи холмах — здесь MINMIDT и штаб-квартира нашего кооператива.',
+    'cm.c3t': 'Криби и Дуала', 'cm.c3p': 'Глубоководный порт и экономическая столица — ворота Камеруна в мир.',
+    'cm.c4t': 'Лом и Джерем', 'cm.c4p': 'Золотоносные реки Восточного региона — сердце россыпного района Бетаре-Ойя.',
 
     'hero.eyebrow': 'COOP-CARTEL №1 · Республика Камерун · Восточный регион · Золотоносный район Бетаре-Ойя',
     'hero.title1': 'Добыча золота', 'hero.title2': 'и алмазов',

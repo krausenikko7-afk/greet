@@ -7,12 +7,15 @@
   <meta name="description" content="COOP-CARTEL №1 — Diamant Gold Cooperative, Yaoundé, Cameroon. Gold and diamond mining project in the Bétaré-Oya gold district, East Region. Active alluvial gold production, 22–22.5 carat gold, 4-hectare licensed concession.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">
 </head>
 <body>
+
+  <!-- ===== SCROLL PROGRESS (Cameroon tricolor) ===== -->
+  <div class="progress" id="progress"></div>
 
   <!-- ===== GOLD PRICE TICKER ===== -->
   <div class="ticker" id="ticker" aria-label="Gold market prices">
@@ -40,9 +43,9 @@
       <nav class="nav__links" id="navLinks">
         <a href="#about" data-i18n="nav.about">Project</a>
         <a href="#process" data-i18n="nav.process">Process</a>
+        <a href="#cameroon" data-i18n="nav.cameroon">Cameroon</a>
         <a href="#location" data-i18n="nav.location">Location</a>
         <a href="#gallery" data-i18n="nav.gallery">Photos</a>
-        <a href="#videos" data-i18n="nav.videos">Videos</a>
         <a href="#news" data-i18n="nav.news">News</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
@@ -64,8 +67,14 @@
   <section class="hero" id="hero">
     <div class="hero__bg"></div>
     <div class="hero__glow"></div>
+    <canvas class="hero__dust" id="goldDust" aria-hidden="true"></canvas>
     <div class="hero__content container">
-      <p class="hero__eyebrow reveal" data-i18n="hero.eyebrow">Republic of Cameroon · East Region · Bétaré-Oya Gold District</p>
+      <p class="hero__eyebrow reveal">
+        <span class="flag-chip" aria-hidden="true">
+          <svg viewBox="0 0 900 600"><rect width="300" height="600" fill="#007a5e"/><rect x="300" width="300" height="600" fill="#ce1126"/><rect x="600" width="300" height="600" fill="#fcd116"/><polygon points="450,200 473.5,267.6 545.1,269.1 488,312.4 508.8,380.9 450,340 391.2,380.9 412,312.4 354.9,269.1 426.5,267.6" fill="#fcd116"/></svg>
+        </span>
+        <span data-i18n="hero.eyebrow">Republic of Cameroon · East Region · Bétaré-Oya Gold District</span>
+      </p>
       <h1 class="hero__title reveal">
         <span data-i18n="hero.title1">Gold &amp; Diamond</span><br>
         <span class="gradient-text" data-i18n="hero.title2">Mining Project</span>
@@ -99,6 +108,17 @@
     </div>
     <a href="#about" class="hero__scroll" aria-label="Scroll down"><span></span></a>
   </section>
+
+  <!-- ===== TRUST STRIP ===== -->
+  <div class="trust" aria-hidden="true">
+    <div class="trust__track" id="trustTrack">
+      <span data-i18n="trust.t1">MINMIDT certified</span><span class="trust__star">★</span>
+      <span data-i18n="trust.t2">22–22.5 carat gold</span><span class="trust__star">★</span>
+      <span data-i18n="trust.t3">Bétaré-Oya gold district</span><span class="trust__star">★</span>
+      <span data-i18n="trust.t4">4 ha licensed concession</span><span class="trust__star">★</span>
+      <span data-i18n="trust.t5">Gold &amp; diamond prospect</span><span class="trust__star">★</span>
+    </div>
+  </div>
 
   <!-- ===== ABOUT ===== -->
   <section class="section" id="about">
@@ -181,6 +201,51 @@
           <div class="pstep__num">5</div>
           <h3 data-i18n="pr.s5t">Certification</h3>
           <p data-i18n="pr.s5p">MINMIDT (Yaoundé) assays each batch — certified 22–22.5 carat purity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CAMEROON ===== -->
+  <section class="section section--cameroon" id="cameroon">
+    <div class="container">
+      <p class="section__eyebrow reveal" data-i18n="cm.eyebrow">Republic of Cameroon</p>
+      <h2 class="section__title reveal" data-i18n="cm.title">Cameroon — “Africa in miniature”</h2>
+      <div class="cm__grid">
+        <figure class="cm__flag reveal">
+          <svg viewBox="0 0 900 600" role="img" aria-label="Flag of Cameroon">
+            <rect width="300" height="600" fill="#007a5e"/>
+            <rect x="300" width="300" height="600" fill="#ce1126"/>
+            <rect x="600" width="300" height="600" fill="#fcd116"/>
+            <polygon points="450,200 473.5,267.6 545.1,269.1 488,312.4 508.8,380.9 450,340 391.2,380.9 412,312.4 354.9,269.1 426.5,267.6" fill="#fcd116"/>
+          </svg>
+          <figcaption data-i18n="cm.flag">Green — the forests of the south · Red — unity · Yellow — the sun and the savannas of the north. The golden star is the “star of unity”.</figcaption>
+        </figure>
+        <div class="cm__text reveal">
+          <p data-i18n="cm.p1">Cameroon stretches from Atlantic beaches and an active volcano to rainforest and Sahel — a bilingual (French &amp; English) republic of about 28 million people, member of CEMAC with the stable CFA franc pegged to the euro.</p>
+          <p data-i18n="cm.p2">The East Region is its treasure chest: alluvial gold of Bétaré-Oya and Batouri, diamond occurrences near Kette and Mobilong, timber and wild landscapes along the Lom and Djérem rivers.</p>
+        </div>
+      </div>
+      <div class="cm__cards">
+        <div class="card reveal">
+          <div class="card__icon">🌋</div>
+          <h3 data-i18n="cm.c1t">Mount Cameroon</h3>
+          <p data-i18n="cm.c1p">West Africa’s highest peak (4,095 m) — an active volcano rising straight from the Atlantic.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card__icon">🏛️</div>
+          <h3 data-i18n="cm.c2t">Yaoundé</h3>
+          <p data-i18n="cm.c2p">The capital on seven hills — seat of MINMIDT and headquarters of our cooperative.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card__icon">🚢</div>
+          <h3 data-i18n="cm.c3t">Kribi &amp; Douala</h3>
+          <p data-i18n="cm.c3p">Deep-sea port and economic capital — Cameroon’s gateways for exports to the world.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card__icon">🏞️</div>
+          <h3 data-i18n="cm.c4t">Lom &amp; Djérem</h3>
+          <p data-i18n="cm.c4p">Gold-bearing rivers of the East Region — the heart of the Bétaré-Oya placer district.</p>
         </div>
       </div>
     </div>
@@ -373,6 +438,7 @@
         <h4 data-i18n="ft.nav">Sections</h4>
         <a href="#about" data-i18n="nav.about">Project</a>
         <a href="#process" data-i18n="nav.process">Process</a>
+        <a href="#cameroon" data-i18n="nav.cameroon">Cameroon</a>
         <a href="#location" data-i18n="nav.location">Location</a>
         <a href="#gallery" data-i18n="nav.gallery">Photos</a>
         <a href="#news" data-i18n="nav.news">News</a>

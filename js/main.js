@@ -46,21 +46,59 @@ fetch('https://api.gold-api.com/price/XAU')
 /* duplicate track content for a seamless marquee loop */
 const tickerTrack = document.getElementById('tickerTrack');
 tickerTrack.innerHTML += tickerTrack.innerHTML;
+const trustTrack = document.getElementById('trustTrack');
+trustTrack.innerHTML += trustTrack.innerHTML;
 
 /* ---------- nav: scrolled state + mobile burger ---------- */
 const nav = document.getElementById('nav');
 const navLinks = document.getElementById('navLinks');
 const toTop = document.getElementById('toTop');
+const progress = document.getElementById('progress');
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY > 30;
   nav.classList.toggle('scrolled', scrolled);
   document.body.classList.toggle('scrolled', scrolled);
   toTop.classList.toggle('show', window.scrollY > 600);
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
 });
 toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 document.getElementById('burger').addEventListener('click', () => navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a =>
   a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+/* ---------- gold dust particles in hero ---------- */
+const dust = document.getElementById('goldDust');
+if (dust && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const ctx = dust.getContext('2d');
+  let W, H, parts;
+  function resizeDust() {
+    W = dust.width = dust.offsetWidth;
+    H = dust.height = dust.offsetHeight;
+    parts = Array.from({ length: 70 }, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      r: Math.random() * 1.8 + 0.6,
+      s: Math.random() * 0.45 + 0.12,
+      a: Math.random() * Math.PI * 2
+    }));
+  }
+  resizeDust();
+  window.addEventListener('resize', resizeDust);
+  (function drawDust(t) {
+    ctx.clearRect(0, 0, W, H);
+    for (const p of parts) {
+      p.y -= p.s;
+      p.x += Math.sin(t / 2000 + p.a) * 0.3;
+      if (p.y < -4) { p.y = H + 4; p.x = Math.random() * W; }
+      const tw = 0.4 + 0.35 * Math.sin(t / 600 + p.a * 7);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, 7);
+      ctx.fillStyle = `rgba(185, 130, 30, ${tw})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(drawDust);
+  })(0);
+}
 
 /* ---------- reveal on scroll ---------- */
 const revealObserver = new IntersectionObserver(entries => {
@@ -107,6 +145,7 @@ const CONCESSION = [
 ];
 const CENTER = [5.54300, 14.08650];
 
+if (typeof L !== 'undefined') {
 const map = L.map('map', { scrollWheelZoom: false }).setView(CENTER, 15);
 
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
@@ -130,6 +169,7 @@ function updateMapLang(dict) {
 }
 
 map.fitBounds(polygon.getBounds().pad(0.6));
+}
 
 /* ---------- lightbox gallery ---------- */
 const lightbox = document.getElementById('lightbox');
