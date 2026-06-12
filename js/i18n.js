@@ -3,6 +3,9 @@ const I18N = {
   en: {
     'nav.about': 'Project', 'nav.location': 'Location', 'nav.gallery': 'Photos',
     'nav.videos': 'Videos', 'nav.contact': 'Contact',
+    'nav.process': 'Process', 'nav.news': 'News',
+
+    'tk.label': 'Gold market — live', 'tk.note': 'indicative world price',
 
     'hero.eyebrow': 'COOP-CARTEL №1 · Republic of Cameroon · East Region · Bétaré-Oya Gold District',
     'hero.title1': 'Gold & Diamond', 'hero.title2': 'Mining Project',
@@ -24,6 +27,19 @@ const I18N = {
     'about.c3p': 'Holder and area registered with Cameroonian mining authorities; official cadastral coordinates (14 corner points).',
     'about.c4t': 'Gold & Diamond District',
     'about.c4p': 'East Cameroon hosts both alluvial gold and diamond occurrences (Bétaré-Oya, Batouri, Kette).',
+
+    'pr.eyebrow': 'How We Work',
+    'pr.title': 'From alluvial gravel to certified gold bars',
+    'pr.s1t': 'Targeting',
+    'pr.s1p': 'Remote-sensing survey outlines the ore zones (Au-1…Au-3, Ag-1) and guides pit placement.',
+    'pr.s2t': 'Excavation',
+    'pr.s2p': 'Excavator opens the gold-bearing gravel layers; prospecting pits verify the pay streak.',
+    'pr.s3t': 'Sluice Washing',
+    'pr.s3p': 'Gravel is washed over sluice lines; heavy gold concentrate settles and is panned clean.',
+    'pr.s4t': 'Smelting',
+    'pr.s4p': 'Concentrate is smelted on site into raw gold bars ready for assay.',
+    'pr.s5t': 'Certification',
+    'pr.s5p': 'MINMIDT (Yaoundé) assays each batch — certified 22–22.5 carat purity.',
 
     'loc.eyebrow': 'Location',
     'loc.title': 'East Region, Cameroon — Bétaré-Oya gold district',
@@ -49,6 +65,18 @@ const I18N = {
     'vid.v1': 'Drone flyover of the concession — coming soon',
     'vid.v2': 'Sluice washing & gold recovery — coming soon',
 
+    'news.eyebrow': 'News', 'news.title': 'Latest from the field',
+    'news.n1d': 'June 2026', 'news.n1t': 'Cooperative rebranded as COOP-CARTEL №1',
+    'news.n1p': 'The project now operates under COOP-CARTEL №1 — Diamant Gold Cooperative, headquartered in Yaoundé, with a new corporate identity.',
+    'news.n2d': 'May 2026', 'news.n2t': 'MINMIDT expertise confirms 22–22.5 carat',
+    'news.n2p': 'Official assay in Yaoundé certified a 334.855 g gold sample at 22–22.5 carat (≈ 91.7–93.75 % purity).',
+    'news.n3d': 'April 2026', 'news.n3t': 'Remote sensing outlines 3 gold zones + 1 silver zone',
+    'news.n3p': 'The RSS survey delineated Au-1, Au-2, Au-3 and Ag-1 as priority targets across and around the concession.',
+
+    'cta.title': 'See the site with your own eyes',
+    'cta.sub': 'We organize site visits to the Bétaré-Oya concession for serious investors — meet the team in Yaoundé and inspect production live.',
+    'cta.btn': 'Arrange a site visit',
+
     'ct.eyebrow': 'Contact', 'ct.title': 'Request the full investor report',
     'ct.desc': 'A detailed confidential report (geology, remote-sensing results, official documents, verification program) is available on request.',
     'ct.person': 'Contact person', 'ct.company': 'Company', 'ct.addr': 'Address',
@@ -56,12 +84,16 @@ const I18N = {
     'ct.name': 'Your name', 'ct.email': 'Email', 'ct.msg': 'Message', 'ct.send': 'Send request',
 
     'ft.line': 'Bétaré-Oya Gold District, East Region, Republic of Cameroon',
+    'ft.nav': 'Sections', 'ft.contacts': 'Contacts',
     'ft.note': 'This website is for information purposes only and does not constitute an offer or a JORC/NI 43-101 resource estimate.'
   },
 
   fr: {
     'nav.about': 'Projet', 'nav.location': 'Localisation', 'nav.gallery': 'Photos',
     'nav.videos': 'Vidéos', 'nav.contact': 'Contact',
+    'nav.process': 'Processus', 'nav.news': 'Actualités',
+
+    'tk.label': 'Marché de l’or — en direct', 'tk.note': 'cours mondial indicatif',
 
     'hero.eyebrow': 'COOP-CARTEL №1 · République du Cameroun · Région de l’Est · District aurifère de Bétaré-Oya',
     'hero.title1': 'Projet minier', 'hero.title2': 'Or & Diamant',
@@ -83,6 +115,19 @@ const I18N = {
     'about.c3p': 'Titulaire et périmètre enregistrés auprès des autorités minières camerounaises ; coordonnées cadastrales officielles (14 points).',
     'about.c4t': 'District or & diamant',
     'about.c4p': 'L’Est du Cameroun recèle à la fois de l’or alluvionnaire et des diamants (Bétaré-Oya, Batouri, Kette).',
+
+    'pr.eyebrow': 'Notre méthode',
+    'pr.title': 'Des graviers alluvionnaires aux lingots d’or certifiés',
+    'pr.s1t': 'Ciblage',
+    'pr.s1p': 'La télédétection délimite les zones minéralisées (Au-1…Au-3, Ag-1) et guide l’implantation des puits.',
+    'pr.s2t': 'Excavation',
+    'pr.s2p': 'La pelle mécanique ouvre les graviers aurifères ; les puits de prospection vérifient la couche payante.',
+    'pr.s3t': 'Lavage au sluice',
+    'pr.s3p': 'Les graviers sont lavés sur les rampes de sluice ; le concentré d’or se dépose puis est affiné à la batée.',
+    'pr.s4t': 'Fusion',
+    'pr.s4p': 'Le concentré est fondu sur place en lingots bruts, prêts pour l’expertise.',
+    'pr.s5t': 'Certification',
+    'pr.s5p': 'Le MINMIDT (Yaoundé) analyse chaque lot — pureté certifiée de 22–22,5 carats.',
 
     'loc.eyebrow': 'Localisation',
     'loc.title': 'Région de l’Est, Cameroun — district aurifère de Bétaré-Oya',
@@ -108,6 +153,18 @@ const I18N = {
     'vid.v1': 'Survol de la concession par drone — bientôt disponible',
     'vid.v2': 'Lavage au sluice & récupération de l’or — bientôt disponible',
 
+    'news.eyebrow': 'Actualités', 'news.title': 'Dernières nouvelles du terrain',
+    'news.n1d': 'Juin 2026', 'news.n1t': 'La coopérative devient COOP-CARTEL №1',
+    'news.n1p': 'Le projet opère désormais sous COOP-CARTEL №1 — Diamant Gold Cooperative, siège à Yaoundé, avec une nouvelle identité visuelle.',
+    'news.n2d': 'Mai 2026', 'news.n2t': 'L’expertise MINMIDT confirme 22–22,5 carats',
+    'news.n2p': 'L’expertise officielle à Yaoundé a certifié un échantillon d’or de 334,855 g à 22–22,5 carats (≈ 91,7–93,75 % de pureté).',
+    'news.n3d': 'Avril 2026', 'news.n3t': 'La télédétection délimite 3 zones d’or + 1 zone d’argent',
+    'news.n3p': 'L’étude RSS a délimité Au-1, Au-2, Au-3 et Ag-1 comme cibles prioritaires sur et autour de la concession.',
+
+    'cta.title': 'Venez voir le site de vos propres yeux',
+    'cta.sub': 'Nous organisons des visites de la concession de Bétaré-Oya pour les investisseurs sérieux — rencontrez l’équipe à Yaoundé et inspectez la production en direct.',
+    'cta.btn': 'Organiser une visite',
+
     'ct.eyebrow': 'Contact', 'ct.title': 'Demander le rapport investisseur complet',
     'ct.desc': 'Un rapport confidentiel détaillé (géologie, résultats de télédétection, documents officiels, programme de vérification) est disponible sur demande.',
     'ct.person': 'Personne de contact', 'ct.company': 'Société', 'ct.addr': 'Adresse',
@@ -115,12 +172,16 @@ const I18N = {
     'ct.name': 'Votre nom', 'ct.email': 'E-mail', 'ct.msg': 'Message', 'ct.send': 'Envoyer la demande',
 
     'ft.line': 'District aurifère de Bétaré-Oya, Région de l’Est, République du Cameroun',
+    'ft.nav': 'Rubriques', 'ft.contacts': 'Contacts',
     'ft.note': 'Ce site est fourni à titre informatif uniquement et ne constitue ni une offre ni une estimation de ressources JORC/NI 43-101.'
   },
 
   de: {
     'nav.about': 'Projekt', 'nav.location': 'Standort', 'nav.gallery': 'Fotos',
     'nav.videos': 'Videos', 'nav.contact': 'Kontakt',
+    'nav.process': 'Ablauf', 'nav.news': 'Aktuelles',
+
+    'tk.label': 'Goldmarkt — live', 'tk.note': 'indikativer Weltmarktpreis',
 
     'hero.eyebrow': 'COOP-CARTEL №1 · Republik Kamerun · Region Est · Goldbezirk Bétaré-Oya',
     'hero.title1': 'Gold- & Diamanten-', 'hero.title2': 'Bergbauprojekt',
@@ -142,6 +203,19 @@ const I18N = {
     'about.c3p': 'Inhaber und Fläche bei den kamerunischen Bergbaubehörden registriert; amtliche Katasterkoordinaten (14 Eckpunkte).',
     'about.c4t': 'Gold- & Diamantbezirk',
     'about.c4p': 'Ostkamerun birgt sowohl alluviales Gold als auch Diamantvorkommen (Bétaré-Oya, Batouri, Kette).',
+
+    'pr.eyebrow': 'So arbeiten wir',
+    'pr.title': 'Vom Seifenkies zum zertifizierten Goldbarren',
+    'pr.s1t': 'Zielfindung',
+    'pr.s1p': 'Die Fernerkundung konturiert die Erzzonen (Au-1…Au-3, Ag-1) und steuert die Lage der Schürfe.',
+    'pr.s2t': 'Aushub',
+    'pr.s2p': 'Der Bagger öffnet die goldführenden Kiesschichten; Schürfgruben bestätigen die Erzlage.',
+    'pr.s3t': 'Schleusenwäsche',
+    'pr.s3p': 'Der Kies wird über Schleusen gewaschen; das schwere Goldkonzentrat setzt sich ab und wird rein ausgewaschen.',
+    'pr.s4t': 'Schmelzen',
+    'pr.s4p': 'Das Konzentrat wird vor Ort zu Rohbarren geschmolzen, bereit zur Prüfung.',
+    'pr.s5t': 'Zertifizierung',
+    'pr.s5p': 'MINMIDT (Yaoundé) prüft jede Charge — zertifizierte Reinheit von 22–22,5 Karat.',
 
     'loc.eyebrow': 'Standort',
     'loc.title': 'Region Est, Kamerun — Goldbezirk Bétaré-Oya',
@@ -167,6 +241,18 @@ const I18N = {
     'vid.v1': 'Drohnenüberflug der Konzession — demnächst',
     'vid.v2': 'Schleusenwäsche & Goldgewinnung — demnächst',
 
+    'news.eyebrow': 'Aktuelles', 'news.title': 'Neuigkeiten vom Standort',
+    'news.n1d': 'Juni 2026', 'news.n1t': 'Kooperative firmiert jetzt als COOP-CARTEL №1',
+    'news.n1p': 'Das Projekt operiert nun als COOP-CARTEL №1 — Diamant Gold Cooperative mit Sitz in Yaoundé und neuem Markenauftritt.',
+    'news.n2d': 'Mai 2026', 'news.n2t': 'MINMIDT-Expertise bestätigt 22–22,5 Karat',
+    'news.n2p': 'Die amtliche Prüfung in Yaoundé zertifizierte eine Goldprobe von 334,855 g mit 22–22,5 Karat (≈ 91,7–93,75 % Reinheit).',
+    'news.n3d': 'April 2026', 'news.n3t': 'Fernerkundung konturiert 3 Goldzonen + 1 Silberzone',
+    'news.n3p': 'Die RSS-Untersuchung wies Au-1, Au-2, Au-3 und Ag-1 als vorrangige Ziele auf und um die Konzession aus.',
+
+    'cta.title': 'Überzeugen Sie sich vor Ort',
+    'cta.sub': 'Für ernsthafte Investoren organisieren wir Besichtigungen der Konzession Bétaré-Oya — Treffen mit dem Team in Yaoundé und Produktion live erleben.',
+    'cta.btn': 'Besichtigung vereinbaren',
+
     'ct.eyebrow': 'Kontakt', 'ct.title': 'Vollständigen Investorenbericht anfordern',
     'ct.desc': 'Ein detaillierter vertraulicher Bericht (Geologie, Fernerkundungsergebnisse, amtliche Unterlagen, Verifizierungsprogramm) ist auf Anfrage erhältlich.',
     'ct.person': 'Ansprechpartner', 'ct.company': 'Unternehmen', 'ct.addr': 'Adresse',
@@ -174,12 +260,16 @@ const I18N = {
     'ct.name': 'Ihr Name', 'ct.email': 'E-Mail', 'ct.msg': 'Nachricht', 'ct.send': 'Anfrage senden',
 
     'ft.line': 'Goldbezirk Bétaré-Oya, Region Est, Republik Kamerun',
+    'ft.nav': 'Bereiche', 'ft.contacts': 'Kontakt',
     'ft.note': 'Diese Website dient ausschließlich der Information und stellt weder ein Angebot noch eine Ressourcenschätzung nach JORC/NI 43-101 dar.'
   },
 
   ru: {
     'nav.about': 'Проект', 'nav.location': 'Локация', 'nav.gallery': 'Фото',
     'nav.videos': 'Видео', 'nav.contact': 'Контакты',
+    'nav.process': 'Процесс', 'nav.news': 'Новости',
+
+    'tk.label': 'Рынок золота — онлайн', 'tk.note': 'индикативная мировая цена',
 
     'hero.eyebrow': 'COOP-CARTEL №1 · Республика Камерун · Восточный регион · Золотоносный район Бетаре-Ойя',
     'hero.title1': 'Добыча золота', 'hero.title2': 'и алмазов',
@@ -201,6 +291,19 @@ const I18N = {
     'about.c3p': 'Владелец и участок зарегистрированы в горнодобывающих органах Камеруна; официальные кадастровые координаты (14 угловых точек).',
     'about.c4t': 'Район золота и алмазов',
     'about.c4p': 'Восточный Камерун богат и россыпным золотом, и алмазами (Бетаре-Ойя, Батури, Кетте).',
+
+    'pr.eyebrow': 'Как мы работаем',
+    'pr.title': 'От аллювиального гравия до сертифицированных слитков',
+    'pr.s1t': 'Разведка',
+    'pr.s1p': 'Дистанционное зондирование оконтуривает рудные зоны (Au-1…Au-3, Ag-1) и задаёт места шурфов.',
+    'pr.s2t': 'Вскрыша',
+    'pr.s2p': 'Экскаватор вскрывает золотоносные слои гравия; шурфы подтверждают продуктивный пласт.',
+    'pr.s3t': 'Промывка на шлюзе',
+    'pr.s3p': 'Гравий промывается на шлюзовых линиях; тяжёлый золотой концентрат осаждается и доводится в лотке.',
+    'pr.s4t': 'Плавка',
+    'pr.s4p': 'Концентрат плавится на месте в черновые слитки, готовые к экспертизе.',
+    'pr.s5t': 'Сертификация',
+    'pr.s5p': 'MINMIDT (Яунде) проводит экспертизу каждой партии — подтверждённая чистота 22–22,5 карата.',
 
     'loc.eyebrow': 'Локация',
     'loc.title': 'Восточный регион Камеруна — золотоносный район Бетаре-Ойя',
@@ -226,6 +329,18 @@ const I18N = {
     'vid.v1': 'Облёт концессии дроном — скоро',
     'vid.v2': 'Промывка на шлюзе и извлечение золота — скоро',
 
+    'news.eyebrow': 'Новости', 'news.title': 'Последние новости с участка',
+    'news.n1d': 'Июнь 2026', 'news.n1t': 'Кооператив переименован в COOP-CARTEL №1',
+    'news.n1p': 'Проект теперь работает под брендом COOP-CARTEL №1 — Diamant Gold Cooperative со штаб-квартирой в Яунде и новым фирменным стилем.',
+    'news.n2d': 'Май 2026', 'news.n2t': 'Экспертиза MINMIDT подтвердила 22–22,5 карата',
+    'news.n2p': 'Официальная экспертиза в Яунде сертифицировала образец золота 334,855 г: 22–22,5 карата (≈ 91,7–93,75 % чистоты).',
+    'news.n3d': 'Апрель 2026', 'news.n3t': 'Зондирование оконтурило 3 золотые зоны + 1 серебряную',
+    'news.n3p': 'Съёмка RSS выделила Au-1, Au-2, Au-3 и Ag-1 как приоритетные цели на концессии и вокруг неё.',
+
+    'cta.title': 'Увидьте участок своими глазами',
+    'cta.sub': 'Для серьёзных инвесторов мы организуем визиты на концессию Бетаре-Ойя — встреча с командой в Яунде и осмотр добычи вживую.',
+    'cta.btn': 'Договориться о визите',
+
     'ct.eyebrow': 'Контакты', 'ct.title': 'Запросить полный отчёт для инвесторов',
     'ct.desc': 'Подробный конфиденциальный отчёт (геология, результаты дистанционного зондирования, официальные документы, программа верификации) доступен по запросу.',
     'ct.person': 'Контактное лицо', 'ct.company': 'Компания', 'ct.addr': 'Адрес',
@@ -233,6 +348,7 @@ const I18N = {
     'ct.name': 'Ваше имя', 'ct.email': 'Email', 'ct.msg': 'Сообщение', 'ct.send': 'Отправить запрос',
 
     'ft.line': 'Золотоносный район Бетаре-Ойя, Восточный регион, Республика Камерун',
+    'ft.nav': 'Разделы', 'ft.contacts': 'Контакты',
     'ft.note': 'Сайт носит исключительно информационный характер и не является офертой или оценкой ресурсов по JORC/NI 43-101.'
   }
 };

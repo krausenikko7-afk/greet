@@ -26,10 +26,38 @@ function applyLang(lang) {
 document.querySelectorAll('#langSwitch button').forEach(btn =>
   btn.addEventListener('click', () => applyLang(btn.dataset.lang)));
 
+/* ---------- gold price ticker ---------- */
+const OZ_TO_G = 31.1034768;
+const KARAT_22_5 = 22.5 / 24;
+
+function renderGoldPrice(ozUsd) {
+  const fmt = v => '$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  document.querySelectorAll('.tk-oz').forEach(el => el.textContent = fmt(ozUsd));
+  document.querySelectorAll('.tk-g').forEach(el => el.textContent = fmt(ozUsd / OZ_TO_G));
+  document.querySelectorAll('.tk-g22').forEach(el => el.textContent = fmt(ozUsd / OZ_TO_G * KARAT_22_5));
+}
+
+renderGoldPrice(4200); // fallback until the live quote arrives
+fetch('https://api.gold-api.com/price/XAU')
+  .then(r => r.json())
+  .then(d => { if (d && d.price) renderGoldPrice(d.price); })
+  .catch(() => {});
+
+/* duplicate track content for a seamless marquee loop */
+const tickerTrack = document.getElementById('tickerTrack');
+tickerTrack.innerHTML += tickerTrack.innerHTML;
+
 /* ---------- nav: scrolled state + mobile burger ---------- */
 const nav = document.getElementById('nav');
 const navLinks = document.getElementById('navLinks');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 30));
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY > 30;
+  nav.classList.toggle('scrolled', scrolled);
+  document.body.classList.toggle('scrolled', scrolled);
+  toTop.classList.toggle('show', window.scrollY > 600);
+});
+toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 document.getElementById('burger').addEventListener('click', () => navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a =>
   a.addEventListener('click', () => navLinks.classList.remove('open')));
