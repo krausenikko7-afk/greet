@@ -1,0 +1,208 @@
+/* ============ LANKEU GOLD — interactions ============ */
+
+/* ---------- language switcher ---------- */
+let currentLang = localStorage.getItem('lang') || 'en';
+
+function applyLang(lang) {
+  const dict = I18N[lang] || I18N.en;
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (dict[key]) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.dataset.i18nPh;
+    if (dict[key]) el.placeholder = dict[key];
+  });
+  document.querySelectorAll('#langSwitch button').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang));
+
+  if (window.__mapRefs) updateMapLang(dict);
+}
+
+document.querySelectorAll('#langSwitch button').forEach(btn =>
+  btn.addEventListener('click', () => applyLang(btn.dataset.lang)));
+
+/* ---------- gold price ticker ---------- */
+const OZ_TO_G = 31.1034768;
+const KARAT_22_5 = 22.5 / 24;
+
+function renderGoldPrice(ozUsd) {
+  const fmt = v => '$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  document.querySelectorAll('.tk-oz').forEach(el => el.textContent = fmt(ozUsd));
+  document.querySelectorAll('.tk-g').forEach(el => el.textContent = fmt(ozUsd / OZ_TO_G));
+  document.querySelectorAll('.tk-g22').forEach(el => el.textContent = fmt(ozUsd / OZ_TO_G * KARAT_22_5));
+}
+
+renderGoldPrice(4200); // fallback until the live quote arrives
+fetch('https://api.gold-api.com/price/XAU')
+  .then(r => r.json())
+  .then(d => { if (d && d.price) renderGoldPrice(d.price); })
+  .catch(() => {});
+
+/* duplicate track content for a seamless marquee loop */
+const tickerTrack = document.getElementById('tickerTrack');
+tickerTrack.innerHTML += tickerTrack.innerHTML;
+const trustTrack = document.getElementById('trustTrack');
+trustTrack.innerHTML += trustTrack.innerHTML;
+
+/* ---------- nav: scrolled state + mobile burger ---------- */
+const nav = document.getElementById('nav');
+const navLinks = document.getElementById('navLinks');
+const toTop = document.getElementById('toTop');
+const progress = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY > 30;
+  nav.classList.toggle('scrolled', scrolled);
+  document.body.classList.toggle('scrolled', scrolled);
+  toTop.classList.toggle('show', window.scrollY > 600);
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+});
+toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+document.getElementById('burger').addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a =>
+  a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+/* ---------- gold dust particles in hero ---------- */
+const dust = document.getElementById('goldDust');
+if (dust && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const ctx = dust.getContext('2d');
+  let W, H, parts;
+  function resizeDust() {
+    W = dust.width = dust.offsetWidth;
+    H = dust.height = dust.offsetHeight;
+    parts = Array.from({ length: 70 }, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      r: Math.random() * 1.8 + 0.6,
+      s: Math.random() * 0.45 + 0.12,
+      a: Math.random() * Math.PI * 2
+    }));
+  }
+  resizeDust();
+  window.addEventListener('resize', resizeDust);
+  (function drawDust(t) {
+    ctx.clearRect(0, 0, W, H);
+    for (const p of parts) {
+      p.y -= p.s;
+      p.x += Math.sin(t / 2000 + p.a) * 0.3;
+      if (p.y < -4) { p.y = H + 4; p.x = Math.random() * W; }
+      const tw = 0.4 + 0.35 * Math.sin(t / 600 + p.a * 7);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, 7);
+      ctx.fillStyle = `rgba(185, 130, 30, ${tw})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(drawDust);
+  })(0);
+}
+
+/* ---------- reveal on scroll ---------- */
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ---------- animated counters ---------- */
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    counterObserver.unobserve(el);
+    const target = parseFloat(el.dataset.count);
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const dur = 1400, t0 = performance.now();
+    (function tick(t) {
+      const p = Math.min((t - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = (target * eased).toFixed(decimals);
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+  });
+}, { threshold: 0.6 });
+document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+/* ---------- map (Leaflet, Esri satellite imagery) ---------- */
+/* Official concession corner points (MINMIDT cadastre), ordered as boundary */
+const CONCESSION = [
+  [5.5446111, 14.0871528], // p1  NE
+  [5.5443444, 14.0880667], // p2
+  [5.5435556, 14.0876167], // p3
+  [5.5428222, 14.0870583], // p6
+  [5.5422611, 14.0862944], // p9
+  [5.5417306, 14.0855167], // p13 SW
+  [5.5422889, 14.0847472], // p14
+  [5.5427417, 14.0854889], // p10
+  [5.5432306, 14.0862278]  // p5
+];
+const CENTER = [5.54300, 14.08650];
+
+if (typeof L !== 'undefined') {
+const map = L.map('map', { scrollWheelZoom: false }).setView(CENTER, 15);
+
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  maxZoom: 19,
+  attribution: 'Imagery © Esri, Maxar, Earthstar Geographics'
+}).addTo(map);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+  maxZoom: 19
+}).addTo(map);
+
+const polygon = L.polygon(CONCESSION, {
+  color: '#e6b34a', weight: 2.5, fillColor: '#e6b34a', fillOpacity: 0.18
+}).addTo(map);
+
+const marker = L.marker(CENTER).addTo(map);
+
+window.__mapRefs = { polygon, marker };
+function updateMapLang(dict) {
+  marker.bindPopup(dict['loc.popup']);
+  polygon.bindTooltip(dict['loc.polygon'], { sticky: true });
+}
+
+map.fitBounds(polygon.getBounds().pad(0.6));
+}
+
+/* ---------- lightbox gallery ---------- */
+const lightbox = document.getElementById('lightbox');
+const lbImg = lightbox.querySelector('img');
+const lbCaption = lightbox.querySelector('.lightbox__caption');
+const items = [...document.querySelectorAll('.gallery__item')];
+let lbIndex = 0;
+
+function openLightbox(i) {
+  lbIndex = (i + items.length) % items.length;
+  const fig = items[lbIndex];
+  lbImg.src = fig.querySelector('img').src;
+  lbImg.alt = fig.querySelector('img').alt;
+  lbCaption.textContent = fig.querySelector('figcaption').textContent;
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden', 'false');
+}
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+}
+
+items.forEach((fig, i) => fig.addEventListener('click', () => openLightbox(i)));
+lightbox.querySelector('.lightbox__close').addEventListener('click', closeLightbox);
+lightbox.querySelector('.lightbox__prev').addEventListener('click', e => { e.stopPropagation(); openLightbox(lbIndex - 1); });
+lightbox.querySelector('.lightbox__next').addEventListener('click', e => { e.stopPropagation(); openLightbox(lbIndex + 1); });
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') openLightbox(lbIndex - 1);
+  if (e.key === 'ArrowRight') openLightbox(lbIndex + 1);
+});
+
+/* ---------- init ---------- */
+applyLang(currentLang);

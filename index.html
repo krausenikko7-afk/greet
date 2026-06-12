@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COOP-CARTEL №1 — Diamant Gold Cooperative · Gold & Diamond Mining, Cameroon</title>
+  <meta name="description" content="COOP-CARTEL №1 — Diamant Gold Cooperative, Yaoundé, Cameroon. Gold and diamond mining project in the Bétaré-Oya gold district, East Region. Active alluvial gold production, 22–22.5 carat gold, 4-hectare licensed concession.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">
+</head>
+<body>
+
+  <!-- ===== SCROLL PROGRESS (Cameroon tricolor) ===== -->
+  <div class="progress" id="progress"></div>
+
+  <!-- ===== GOLD PRICE TICKER ===== -->
+  <div class="ticker" id="ticker" aria-label="Gold market prices">
+    <div class="ticker__label">
+      <span class="ticker__dot"></span>
+      <span data-i18n="tk.label">Gold market — live</span>
+    </div>
+    <div class="ticker__viewport">
+      <div class="ticker__track" id="tickerTrack">
+        <span class="ticker__item">XAU/USD <strong class="tk-oz">$—</strong> / oz t</span>
+        <span class="ticker__item">24 ct <strong class="tk-g">$—</strong> / g</span>
+        <span class="ticker__item">22.5 ct <strong class="tk-g22">$—</strong> / g</span>
+        <span class="ticker__item ticker__note" data-i18n="tk.note">indicative world price</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner container">
+      <a href="#hero" class="nav__logo">
+        <img src="assets/logo.svg" alt="Diamant Gold" class="nav__logo-img">
+        <span class="nav__logo-text">COOP-CARTEL <em>№1</em><small>DIAMANT GOLD COOPERATIVE</small></span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="#about" data-i18n="nav.about">Project</a>
+        <a href="#process" data-i18n="nav.process">Process</a>
+        <a href="#cameroon" data-i18n="nav.cameroon">Cameroon</a>
+        <a href="#location" data-i18n="nav.location">Location</a>
+        <a href="#gallery" data-i18n="nav.gallery">Photos</a>
+        <a href="#news" data-i18n="nav.news">News</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="nav__right">
+        <div class="lang-switch" id="langSwitch">
+          <button data-lang="en" class="active">EN</button>
+          <button data-lang="fr">FR</button>
+          <button data-lang="de">DE</button>
+          <button data-lang="ru">RU</button>
+        </div>
+        <button class="nav__burger" id="burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__glow"></div>
+    <canvas class="hero__dust" id="goldDust" aria-hidden="true"></canvas>
+    <div class="hero__content container">
+      <p class="hero__eyebrow reveal">
+        <span class="flag-chip" aria-hidden="true">
+          <svg viewBox="0 0 900 600"><rect width="300" height="600" fill="#007a5e"/><rect x="300" width="300" height="600" fill="#ce1126"/><rect x="600" width="300" height="600" fill="#fcd116"/><polygon points="450,200 473.5,267.6 545.1,269.1 488,312.4 508.8,380.9 450,340 391.2,380.9 412,312.4 354.9,269.1 426.5,267.6" fill="#fcd116"/></svg>
+        </span>
+        <span data-i18n="hero.eyebrow">Republic of Cameroon · East Region · Bétaré-Oya Gold District</span>
+      </p>
+      <h1 class="hero__title reveal">
+        <span data-i18n="hero.title1">Gold &amp; Diamond</span><br>
+        <span class="gradient-text" data-i18n="hero.title2">Mining Project</span>
+      </h1>
+      <p class="hero__sub reveal" data-i18n="hero.sub">
+        Active alluvial gold production on a 4-hectare licensed concession in one of
+        Cameroon's most prospective gold districts — verified 22–22.5 carat output.
+      </p>
+      <div class="hero__cta reveal">
+        <a href="#gallery" class="btn btn--gold" data-i18n="hero.cta1">View Gallery</a>
+        <a href="#location" class="btn btn--ghost" data-i18n="hero.cta2">See Location</a>
+      </div>
+      <div class="hero__stats reveal">
+        <div class="stat">
+          <div class="stat__num" data-count="4">0</div>
+          <div class="stat__label" data-i18n="stats.hectares">hectares concession</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num"><span data-count="22.5" data-decimals="1">0</span></div>
+          <div class="stat__label" data-i18n="stats.carat">carat gold purity</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num"><span data-count="3">0</span>+1</div>
+          <div class="stat__label" data-i18n="stats.zones">ore zones detected (Au + Ag)</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num"><span data-count="1.25" data-decimals="2">0</span></div>
+          <div class="stat__label" data-i18n="stats.grade">g/m³ indicative grade</div>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="hero__scroll" aria-label="Scroll down"><span></span></a>
+  </section>
+
+  <!-- ===== TRUST STRIP ===== -->
+  <div class="trust" aria-hidden="true">
+    <div class="trust__track" id="trustTrack">
+      <span data-i18n="trust.t1">MINMIDT certified</span><span class="trust__star">★</span>
+      <span data-i18n="trust.t2">22–22.5 carat gold</span><span class="trust__star">★</span>
+      <span data-i18n="trust.t3">Bétaré-Oya gold district</span><span class="trust__star">★</span>
+      <span data-i18n="trust.t4">4 ha licensed concession</span><span class="trust__star">★</span>
+      <span data-i18n="trust.t5">Gold &amp; diamond prospect</span><span class="trust__star">★</span>
+    </div>
+  </div>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <p class="section__eyebrow reveal" data-i18n="about.eyebrow">The Project</p>
+      <h2 class="section__title reveal" data-i18n="about.title">An operating gold site in the heart of Bétaré-Oya</h2>
+      <div class="about__grid">
+        <div class="about__text reveal">
+          <p data-i18n="about.p1">
+            The concession of LANKEU PATRICE LEMON covers four hectares in the East Region of
+            the Republic of Cameroon, within the renowned Bétaré-Oya gold district — an area with
+            extensive gold-bearing alluvial gravels of proven economic importance, roughly 160 km
+            from Bertoua, the regional capital.
+          </p>
+          <p data-i18n="about.p2">
+            Artisanal and semi-mechanized gold production is already active on site: excavators,
+            prospecting pits and sluice washing. Official expertise (MINMIDT, Yaoundé) certified
+            gold bars of 22–22.5 carat (≈ 91.7–93.75% purity) produced by the operator.
+          </p>
+          <p data-i18n="about.p3">
+            Remote-sensing survey (RSS) outlined three gold ore zones (Au-1, Au-2, Au-3) and one
+            silver-bearing zone (Ag-1) as priority exploration targets. The East Region is also
+            known for its alluvial diamond occurrences, making the area a combined gold &amp;
+            diamond prospect.
+          </p>
+        </div>
+        <div class="about__cards">
+          <div class="card reveal">
+            <div class="card__icon">⛏️</div>
+            <h3 data-i18n="about.c1t">Active Production</h3>
+            <p data-i18n="about.c1p">Excavator, prospecting pits and sluice — real gold is being produced today.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card__icon">🏅</div>
+            <h3 data-i18n="about.c2t">Certified Purity</h3>
+            <p data-i18n="about.c2p">Official MINMIDT expertise: 22–22.5 carat gold bars, 334.855 g sample.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card__icon">📜</div>
+            <h3 data-i18n="about.c3t">Registered Concession</h3>
+            <p data-i18n="about.c3p">Holder and area registered with Cameroonian mining authorities; official cadastral coordinates (14 corner points).</p>
+          </div>
+          <div class="card reveal">
+            <div class="card__icon">💎</div>
+            <h3 data-i18n="about.c4t">Gold &amp; Diamond District</h3>
+            <p data-i18n="about.c4p">East Cameroon hosts both alluvial gold and diamond occurrences (Bétaré-Oya, Batouri, Kette).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESS ===== -->
+  <section class="section section--alt" id="process">
+    <div class="container">
+      <p class="section__eyebrow reveal" data-i18n="pr.eyebrow">How We Work</p>
+      <h2 class="section__title reveal" data-i18n="pr.title">From alluvial gravel to certified gold bars</h2>
+      <div class="process">
+        <div class="pstep reveal">
+          <div class="pstep__num">1</div>
+          <h3 data-i18n="pr.s1t">Targeting</h3>
+          <p data-i18n="pr.s1p">Remote-sensing survey outlines the ore zones (Au-1…Au-3, Ag-1) and guides pit placement.</p>
+        </div>
+        <div class="pstep reveal">
+          <div class="pstep__num">2</div>
+          <h3 data-i18n="pr.s2t">Excavation</h3>
+          <p data-i18n="pr.s2p">Excavator opens the gold-bearing gravel layers; prospecting pits verify the pay streak.</p>
+        </div>
+        <div class="pstep reveal">
+          <div class="pstep__num">3</div>
+          <h3 data-i18n="pr.s3t">Sluice Washing</h3>
+          <p data-i18n="pr.s3p">Gravel is washed over sluice lines; heavy gold concentrate settles and is panned clean.</p>
+        </div>
+        <div class="pstep reveal">
+          <div class="pstep__num">4</div>
+          <h3 data-i18n="pr.s4t">Smelting</h3>
+          <p data-i18n="pr.s4p">Concentrate is smelted on site into raw gold bars ready for assay.</p>
+        </div>
+        <div class="pstep reveal">
+          <div class="pstep__num">5</div>
+          <h3 data-i18n="pr.s5t">Certification</h3>
+          <p data-i18n="pr.s5p">MINMIDT (Yaoundé) assays each batch — certified 22–22.5 carat purity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CAMEROON ===== -->
+  <section class="section section--cameroon" id="cameroon">
+    <div class="container">
+      <p class="section__eyebrow reveal" data-i18n="cm.eyebrow">Republic of Cameroon</p>
+      <h2 class="section__title reveal" data-i18n="cm.title">Cameroon — “Africa in miniature”</h2>
+      <div class="cm__grid">
+        <figure class="cm__flag reveal">
+          <svg viewBox="0 0 900 600" role="img" aria-label="Flag of Cameroon">
+            <rect width="300" height="600" fill="#007a5e"/>
+            <rect x="300" width="300" height="600" fill="#ce1126"/>
+            <rect x="600" width="300" height="600" fill="#fcd116"/>
+            <polygon points="450,200 473.5,267.6 545.1,269.1 488,312.4 508.8,380.9 450,340 391.2,380.9 412,312.4 354.9,269.1 426.5,267.6" fill="#fcd116"/>
+          </svg>
+          <figcaption data-i18n="cm.flag">Green — the forests of the south · Red — unity · Yellow — the sun and the savannas of the north. The golden star is the “star of unity”.</figcaption>
+        </figure>
+        <div class="cm__text reveal">
+          <p data-i18n="cm.p1">Cameroon stretches from Atlantic beaches and an active volcano to rainforest and Sahel — a bilingual (French &amp; English) republic of about 28 million people, member of CEMAC with the stable CFA franc pegged to the euro.</p>
+          <p data-i18n="cm.p2">The East Region is its treasure chest: alluvial gold of Bétaré-Oya and Batouri, diamond occurrences near Kette and Mobilong, timber and wild landscapes along the Lom and Djérem rivers.</p>
+        </div>
+      </div>
+      <div class="cm__cards">
+        <div class="card reveal">
+          <div class="card__icon">🌋</div>
+          <h3 data-i18n="cm.c1t">Mount Cameroon</h3>
+          <p data-i18n="cm.c1p">West Africa’s highest peak (4,095 m) — an active volcano rising straight from the Atlantic.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card__icon">🏛️</div>
+          <h3 data-i18n="cm.c2t">Yaoundé</h3>
+          <p data-i18n="cm.c2p">The capital on seven hills — seat of MINMIDT and headquarters of our cooperative.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card__icon">🚢</div>
+          <h3 data-i18n="cm.c3t">Kribi &amp; Douala</h3>
+          <p data-i18n="cm.c3p">Deep-sea port and economic capital — Cameroon’s gateways for exports to the world.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card__icon">🏞️</div>
+          <h3 data-i18n="cm.c4t">Lom &amp; Djérem</h3>
+          <p data-i18n="cm.c4p">Gold-bearing rivers of the East Region — the heart of the Bétaré-Oya placer district.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOCATION ===== -->
+  <section class="section" id="location">
+    <div class="container">
+      <p class="section__eyebrow reveal" data-i18n="loc.eyebrow">Location</p>
+      <h2 class="section__title reveal" data-i18n="loc.title">East Region, Cameroon — Bétaré-Oya gold district</h2>
+      <div class="loc__grid">
+        <div class="loc__info reveal">
+          <ul class="loc__list">
+            <li><strong data-i18n="loc.l1t">Center of concession:</strong> <span class="mono">5°32′35″ N, 14°05′11″ E</span></li>
+            <li><strong data-i18n="loc.l2t">Decimal:</strong> <span class="mono">5.54300, 14.08650</span></li>
+            <li><strong data-i18n="loc.l3t">District:</strong> <span data-i18n="loc.l3v">Bétaré-Oya, Lom-et-Djérem, East Region</span></li>
+            <li><strong data-i18n="loc.l4t">Regional capital:</strong> <span data-i18n="loc.l4v">Bertoua (~160 km)</span></li>
+            <li><strong data-i18n="loc.l5t">Area:</strong> <span data-i18n="loc.l5v">4 hectares (14 official corner points)</span></li>
+          </ul>
+          <div class="loc__btns">
+            <a class="btn btn--gold" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/search/?api=1&query=5.54300,14.08650"
+               data-i18n="loc.gmaps">Open in Google Maps</a>
+            <a class="btn btn--ghost" target="_blank" rel="noopener"
+               href="https://earth.google.com/web/@5.543,14.0865,680a,2000d,35y,0h,0t,0r"
+               data-i18n="loc.gearth">Google Earth</a>
+          </div>
+        </div>
+        <div class="loc__map reveal">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="section section--alt" id="gallery">
+    <div class="container">
+      <p class="section__eyebrow reveal" data-i18n="gal.eyebrow">Gallery</p>
+      <h2 class="section__title reveal" data-i18n="gal.title">Photos from the site</h2>
+      <p class="section__desc reveal" data-i18n="gal.desc">
+        Sluice washing, excavation works, gold concentrate and the concession landscape.
+        New photos are added as they arrive from the field.
+      </p>
+      <div class="gallery" id="photoGrid">
+        <!-- To add a real photo: drop the file into assets/photos/ and replace a placeholder
+             figure below, e.g. <img src="assets/photos/IMG_001.jpg" alt="..."> -->
+        <figure class="gallery__item reveal" data-caption-i18n="gal.cap1">
+          <img src="assets/photos/placeholder-1.svg" alt="Sluice gold washing" loading="lazy">
+          <figcaption data-i18n="gal.cap1">Gold recovery over the sluice</figcaption>
+        </figure>
+        <figure class="gallery__item reveal" data-caption-i18n="gal.cap2">
+          <img src="assets/photos/placeholder-2.svg" alt="Excavator at the pit" loading="lazy">
+          <figcaption data-i18n="gal.cap2">Mechanical excavation at the pit edge</figcaption>
+        </figure>
+        <figure class="gallery__item reveal" data-caption-i18n="gal.cap3">
+          <img src="assets/photos/placeholder-3.svg" alt="Gold concentrate" loading="lazy">
+          <figcaption data-i18n="gal.cap3">Weighed gold concentrate — 12.47 g</figcaption>
+        </figure>
+        <figure class="gallery__item reveal" data-caption-i18n="gal.cap4">
+          <img src="assets/photos/placeholder-4.svg" alt="Gold in the pan" loading="lazy">
+          <figcaption data-i18n="gal.cap4">Concentrate in the washing pan</figcaption>
+        </figure>
+        <figure class="gallery__item reveal" data-caption-i18n="gal.cap5">
+          <img src="assets/photos/placeholder-5.svg" alt="Concession landscape" loading="lazy">
+          <figcaption data-i18n="gal.cap5">Concession area — Bétaré-Oya district</figcaption>
+        </figure>
+        <figure class="gallery__item reveal" data-caption-i18n="gal.cap6">
+          <img src="assets/photos/placeholder-6.svg" alt="Gold bars" loading="lazy">
+          <figcaption data-i18n="gal.cap6">Gold bars, 22–22.5 carat (MINMIDT expertise)</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VIDEOS ===== -->
+  <section class="section" id="videos">
+    <div class="container">
+      <p class="section__eyebrow reveal" data-i18n="vid.eyebrow">Videos</p>
+      <h2 class="section__title reveal" data-i18n="vid.title">Video from the field</h2>
+      <p class="section__desc reveal" data-i18n="vid.desc">
+        Drone flyovers and working footage of the mining operations.
+      </p>
+      <div class="videos">
+        <!-- To add a real video: drop the file into assets/videos/ and replace a placeholder with
+             <video controls poster="..."><source src="assets/videos/clip.mp4" type="video/mp4"></video>
+             or paste a YouTube iframe embed. -->
+        <div class="video__item reveal">
+          <div class="video__placeholder">
+            <button class="video__play" aria-label="Play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+            <span data-i18n="vid.v1">Drone flyover of the concession — coming soon</span>
+          </div>
+        </div>
+        <div class="video__item reveal">
+          <div class="video__placeholder">
+            <button class="video__play" aria-label="Play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+            <span data-i18n="vid.v2">Sluice washing &amp; gold recovery — coming soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWS ===== -->
+  <section class="section section--alt" id="news">
+    <div class="container">
+      <p class="section__eyebrow reveal" data-i18n="news.eyebrow">News</p>
+      <h2 class="section__title reveal" data-i18n="news.title">Latest from the field</h2>
+      <div class="news">
+        <article class="news__card reveal">
+          <span class="news__date" data-i18n="news.n1d">June 2026</span>
+          <h3 data-i18n="news.n1t">Cooperative rebranded as COOP-CARTEL №1</h3>
+          <p data-i18n="news.n1p">The project now operates under COOP-CARTEL №1 — Diamant Gold Cooperative, headquartered in Yaoundé, with a new corporate identity.</p>
+        </article>
+        <article class="news__card reveal">
+          <span class="news__date" data-i18n="news.n2d">May 2026</span>
+          <h3 data-i18n="news.n2t">MINMIDT expertise confirms 22–22.5 carat</h3>
+          <p data-i18n="news.n2p">Official assay in Yaoundé certified a 334.855 g gold sample at 22–22.5 carat (≈ 91.7–93.75 % purity).</p>
+        </article>
+        <article class="news__card reveal">
+          <span class="news__date" data-i18n="news.n3d">April 2026</span>
+          <h3 data-i18n="news.n3t">Remote sensing outlines 3 gold zones + 1 silver zone</h3>
+          <p data-i18n="news.n3p">The RSS survey delineated Au-1, Au-2, Au-3 and Ag-1 as priority targets across and around the concession.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BAND ===== -->
+  <section class="cta">
+    <div class="container cta__inner">
+      <div class="reveal">
+        <h2 data-i18n="cta.title">See the site with your own eyes</h2>
+        <p data-i18n="cta.sub">We organize site visits to the Bétaré-Oya concession for serious investors — meet the team in Yaoundé and inspect production live.</p>
+      </div>
+      <a href="#contact" class="btn btn--dark reveal" data-i18n="cta.btn">Arrange a site visit</a>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <p class="section__eyebrow reveal" data-i18n="ct.eyebrow">Contact</p>
+      <h2 class="section__title reveal" data-i18n="ct.title">Request the full investor report</h2>
+      <p class="section__desc reveal" data-i18n="ct.desc">
+        A detailed confidential report (geology, remote-sensing results, official documents,
+        verification program) is available on request.
+      </p>
+      <div class="contact__grid">
+        <div class="contact__info reveal">
+          <img src="assets/business-card.jpg" alt="COOP-CARTEL №1 — Nikolai Krause business card" class="contact__card-img">
+          <ul class="contact__list">
+            <li><span class="contact__label" data-i18n="ct.person">Contact person</span><strong>Nikolai Krause</strong></li>
+            <li><span class="contact__label" data-i18n="ct.company">Company</span><strong>COOP-CARTEL №1 · Diamant Gold Cooperative</strong></li>
+            <li><span class="contact__label" data-i18n="ct.addr">Address</span><strong>Golf, Yaoundé 1, Cameroon</strong></li>
+            <li><span class="contact__label" data-i18n="ct.phone">Phone / WhatsApp</span>
+              <strong>
+                <a href="tel:+237672782452">+237 672 78 24 52</a><br>
+                <a href="tel:+237675176448">+237 675 17 64 48</a><br>
+                <a href="tel:+237675176357">+237 675 17 63 57</a>
+              </strong>
+            </li>
+            <li><span class="contact__label">Email</span><strong><a href="mailto:nk@goldanddiamondscameroon.com">nk@goldanddiamondscameroon.com</a></strong></li>
+            <li><span class="contact__label" data-i18n="ct.web">Website</span><strong><a href="https://www.golddiamondscameroon.com" target="_blank" rel="noopener">www.golddiamondscameroon.com</a></strong></li>
+          </ul>
+        </div>
+      <form class="contact reveal" id="contactForm" action="mailto:nk@goldanddiamondscameroon.com" method="post" enctype="text/plain">
+        <div class="contact__row">
+          <input type="text" name="name" required data-i18n-ph="ct.name" placeholder="Your name">
+          <input type="email" name="email" required data-i18n-ph="ct.email" placeholder="Email">
+        </div>
+        <textarea name="message" rows="4" required data-i18n-ph="ct.msg" placeholder="Message"></textarea>
+        <button type="submit" class="btn btn--gold" data-i18n="ct.send">Send request</button>
+      </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#hero" class="nav__logo">
+          <img src="assets/logo.svg" alt="Diamant Gold" class="nav__logo-img">
+          <span class="nav__logo-text">COOP-CARTEL <em>№1</em><small>DIAMANT GOLD COOPERATIVE</small></span>
+        </a>
+        <p data-i18n="ft.line">Bétaré-Oya Gold District, East Region, Republic of Cameroon</p>
+      </div>
+      <nav class="footer__col">
+        <h4 data-i18n="ft.nav">Sections</h4>
+        <a href="#about" data-i18n="nav.about">Project</a>
+        <a href="#process" data-i18n="nav.process">Process</a>
+        <a href="#cameroon" data-i18n="nav.cameroon">Cameroon</a>
+        <a href="#location" data-i18n="nav.location">Location</a>
+        <a href="#gallery" data-i18n="nav.gallery">Photos</a>
+        <a href="#news" data-i18n="nav.news">News</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="footer__col">
+        <h4 data-i18n="ft.contacts">Contacts</h4>
+        <p>Golf, Yaoundé 1, Cameroon</p>
+        <a href="tel:+237672782452">+237 672 78 24 52</a>
+        <a href="tel:+237675176448">+237 675 17 64 48</a>
+        <a href="mailto:nk@goldanddiamondscameroon.com">nk@goldanddiamondscameroon.com</a>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© 2026 COOP-CARTEL №1 · DIAMANT GOLD COOPERATIVE</p>
+      <p class="footer__note" data-i18n="ft.note">
+        This website is for information purposes only and does not constitute an offer or a
+        JORC/NI 43-101 resource estimate.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== FLOATING BUTTONS ===== -->
+  <a class="float-wa" href="https://wa.me/237672782452" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <button class="float-top" id="toTop" aria-label="Back to top">↑</button>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" aria-label="Close">×</button>
+    <button class="lightbox__prev" aria-label="Previous">‹</button>
+    <img src="" alt="">
+    <button class="lightbox__next" aria-label="Next">›</button>
+    <p class="lightbox__caption"></p>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
