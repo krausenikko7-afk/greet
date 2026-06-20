@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI-маркетинговое агентство</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>🤖 AI-маркетинговое агентство</h1>
+  <p>Команда AI-агентов, готовых закрыть любую маркетинговую задачу.</p>
+</header>
+
+<main>
+  <section id="agents" aria-label="Агенты"></section>
+
+  <section id="chat-section" hidden>
+    <button id="back">← Выбрать другого агента</button>
+    <h2 id="chat-title"></h2>
+    <div id="log"></div>
+    <form id="chat-form">
+      <input id="chat-input" type="text" placeholder="Напиши задачу агенту..." autocomplete="off" required>
+      <button type="submit">Отправить</button>
+    </form>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
