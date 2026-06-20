@@ -1,0 +1,24 @@
+:root { font-family: system-ui, sans-serif; background: #0d1117; color: #e6edf3; }
+body { margin: 0; }
+header { padding: 2rem; text-align: center; background: #161b22; border-bottom: 1px solid #30363d; }
+header h1 { margin: 0 0 .5rem; }
+main { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+
+#agents { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+.agent-card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 1.2rem; cursor: pointer; text-align: left; color: inherit; }
+.agent-card:hover { border-color: #58a6ff; }
+.agent-card .emoji { font-size: 2rem; }
+.agent-card h3 { margin: .5rem 0 0; }
+.agent-card p { margin: .3rem 0 0; color: #8b949e; font-size: .9rem; }
+
+#back { background: none; border: none; color: #58a6ff; cursor: pointer; padding: 0; margin-bottom: 1rem; }
+#log { display: flex; flex-direction: column; gap: .6rem; min-height: 200px; margin-bottom: 1rem; }
+.msg { padding: .6rem .9rem; border-radius: 8px; max-width: 80%; white-space: pre-wrap; }
+.msg.user { background: #1f6feb; align-self: flex-end; }
+.msg.agent { background: #161b22; border: 1px solid #30363d; align-self: flex-start; }
+.msg.error { background: #3d1d1d; border: 1px solid #f85149; align-self: flex-start; color: #f85149; }
+
+#chat-form { display: flex; gap: .5rem; }
+#chat-input { flex: 1; padding: .6rem; border-radius: 8px; border: 1px solid #30363d; background: #0d1117; color: inherit; }
+button[type="submit"] { padding: .6rem 1.2rem; border-radius: 8px; border: none; background: #1f6feb; color: white; cursor: pointer; }
+button[type="submit"]:disabled { opacity: .5; cursor: not-allowed; }
